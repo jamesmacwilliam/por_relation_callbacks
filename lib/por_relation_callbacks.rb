@@ -53,18 +53,20 @@ module PorRelationCallbacks
 
   def after_add
     return true if _after_add.empty?
-    (@updated_relation_state - @existing_relation_state).each do |rel|
-      _after_add.each do |method|
-        send(method, rel)
-      end
-    end
+    trigger_callbacks (@updated_relation_state - @existing_relation_state),
+      _after_add
   end
 
   def after_remove
     return true if _after_remove.empty?
-    (@existing_relation_state - @updated_relation_state).each do |rel|
-      _after_remove.each do |method|
-        send(method, rel)
+    trigger_callbacks (@existing_relation_state - @updated_relation_state),
+      _after_remove
+  end
+
+  def trigger_callbacks(records, callbacks)
+    records.each do |record|
+      callbacks.each do |method|
+        send(method, record)
       end
     end
   end
