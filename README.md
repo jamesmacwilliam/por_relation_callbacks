@@ -5,6 +5,12 @@ of an object that do not belong in the active record object. an example
 would be any callback that does not manipulate the data of the base
 object directly.
 
+[![Build
+Status](https://travis-ci.org/jamesmacwilliam/por_relation_callbacks.svg?branch=master)](https://travis-ci.org/jamesmacwilliam/por_relation_callbacks)
+
+[![Code
+Climate](https://codeclimate.com/github/jamesmacwilliam/por_relation_callbacks/badges/gpa.svg)](https://codeclimate.com/github/jamesmacwilliam/por_relation_callbacks)
+
 ## Installation
 
 Add this line to your application's Gemfile:
